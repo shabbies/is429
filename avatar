@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html ng-app="">
+<head>
+<link rel="stylesheet" href = "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+</head>
+
+<body ng-controller="userController">
+<div class="container">
+
+<h3>Users</h3>
+
+<table class="table table-striped">
+  <thead  align='center'>
+    <tr>
+      <th>Name</th>
+      <th>Avatar</th>
+    </tr>
+  </thead>
+  <tbody  align='center'>
+    <tr ng-repeat="user in users">
+      <td>{{ user.name }}</td>
+      <td><img src='{{ user.avatar }}' style='max-width: 50px; max-height: 50px;'/></td>
+      <td align='right'>
+        <button class="btn btn-warning" ng-click="editUser(user.id)">
+          <span class="glyphicon glyphicon-pencil"></span>  Edit
+        </button>
+      </td>
+      <td align='left'>
+        <button class="btn btn-danger" ng-click="deleteUser(user.id)">
+          <span class="glyphicon glyphicon-pencil"></span>  Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+<button class="btn btn-success" ng-click="editUser('new')">
+<span class="glyphicon glyphicon-user"></span>  Create New User
+</button>
+<hr>
+
+
+<h3 ng-show="edit">Create New User:</h3>
+<h3 ng-hide="edit">Edit User:</h3>
+
+<form class="form-horizontal">
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Name:</label>
+    <div class="col-sm-10">
+    <input type="text" ng-model="name" ng-disabled="!edit" placeholder="Name">
+    </div>
+  </div> 
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Avatar:</label>
+    <div class="col-sm-10">
+    <input type="text" ng-model="avatar" ng-disabled="!edit" placeholder="Link to Avatar">
+    </div>
+  </div>
+</form>
+
+<hr>
+<button class="btn btn-success" ng-disabled="error || incomplete" ng-click="save()">
+<span class="glyphicon glyphicon-save"></span>  Save Changes
+</button>
+
+</div>
+
+<script>
+  function userController($scope) {
+    $scope.fName = '';
+    $scope.lName = '';
+    
+    //We can replace this with a Firebase url later on. 
+    $scope.users = [
+        {id:1, name:'Hege'  , avatar:"http://i.imgur.com/A7Dy18f.png" },
+        {id:2, name:'Kim'   , avatar:"http://i.imgur.com/GJLwdc1.png" },
+        {id:3, name:'Jack'  , avatar:"http://findicons.com/files/icons/1072/face_avatars/300/a01.png" },
+        {id:4, name:'John'  , avatar:"http://ict4kids.files.wordpress.com/2013/05/mrc-2.png" },
+        {id:5, name:'Peter' , avatar:"http://infinitelives.net/avatars/mangajen.jpg" }
+    ];
+    
+    $scope.edit = true;
+    $scope.error = false;
+    $scope.incomplete = false;  
+    
+    
+    $scope.editUser = function(id) {
+        $scope.currentId = id;
+        if (id == 'new') {
+            $scope.edit = true;
+            $scope.incomplete = true;
+            $scope.name = '';
+            $scope.name = '';
+            console.log("new user.");
+        } else {
+            $scope.edit = true;
+            $scope.name = $scope.users[id-1].name;
+            $scope.avatar = $scope.users[id-1].avatar; 
+            console.log("existing user.");
+        }
+    };
+    
+    $scope.$watch('name', function() {$scope.test();});
+    $scope.$watch('avatar', function() {$scope.test();});
+    $scope.test = function() {
+        $scope.error = false;
+        $scope.incomplete = false;
+        if ($scope.edit && (!$scope.name.length || !$scope.avatar.length|| !$scope.passw1.length || !$scope.passw2.length)) {
+            $scope.incomplete = true;
+        }
+    };
+    $scope.save = function(){
+      //Add new if no index is passed in.
+      if($scope.currentId=='new'){
+        //Using the array length as the next index while prototyping. 
+        $scope.users.push({id:$scope.users.length+1, name:$scope.name  , avatar:$scope.avatar });
+      }
+      else{
+        $scope.users[$scope.currentId-1].name = $scope.name;
+        $scope.users[$scope.currentId-1].avatar = $scope.avatar;
+      }
+    };
+    
+    $scope.deleteUser = function(index){
+      $scope.users.splice(index-1, 1);
+    }
+    
+    }
+  
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
