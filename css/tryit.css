@@ -1,0 +1,158 @@
+/* centered columns styles */
+.row-centered {
+  text-align:center;
+}
+.col-centered {
+  display:inline-block;
+  float:none;
+  /* reset the text-align */
+  text-align:left;
+  /* inline-block space fix */
+  margin-right:-4px;
+}
+
+.square {
+  border-radius: 0px!important;
+}
+
+.white {
+  color: #fff!important;
+}
+
+div.contest-menu-container {
+  background-color: #fff;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-clip: padding-box;
+  opacity: 0.97;
+  filter: alpha(opacity=97);
+  border: 1px solid rgba(0, 0, 0, 0.175);
+  -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+}
+
+div.contest-menu-container h4 {
+  font-weight: 300;
+  color: white;
+}
+
+div.contest-menu-container .thumbnail {
+ width:100%;
+ min-height:200px;
+ border: 0px!important;
+ padding: 0px;
+ border-radius: 0;
+ border: 0px!important;
+}
+
+div.contest-menu-content {
+  color: #323232;
+}
+
+.contest-pad {
+  padding: 25px 25px;
+}
+
+.contest-pada{
+  background-color: rgb(197, 44, 102);
+  color:white;
+}
+
+.contest-padb{
+  background-color: rgb(165, 82, 167);
+  color:white;
+}
+
+.no-pad {
+  padding-right: 0;
+  padding-left: 0;
+  padding-bottom: 0;
+}
+
+.overview h3 {
+  font-weight: 300;
+  margin-top: 15px;
+  margin: 10px 0 0 0;
+}
+
+.overview h4 {
+  font-weight: bold!important;
+  font-size: 40px;
+  margin-top: 0;
+  text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+}
+
+.info {
+  display: block;
+  background: #3ACFCD;
+  text-transform: uppercase;
+  font-weight: 300;
+  color:white;
+  text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+}
+
+.action-content, .email-content {
+  border: 1px solid #ddd;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  font-weight: 500;
+  background-color: #eee;
+  color: #8b8b8b;
+}
+
+.action-content:hover, .email-content:hover {
+ background-color: rgb(200, 200, 200);
+ color: #333;
+ cursor: pointer;
+}
+
+.powered-info {
+  display: block;
+  background: #eee;
+  padding:5px;
+}
+
+.square {
+  border-radius: 0px!important;
+}
+
+.btn-twitter, .btn-fb, .btn-insta, .btn-email{
+  color:#fff;
+  width: 50px;
+  margin-right:10px;
+  opacity: 0.9;
+}
+
+.btn-twitter:hover, .btn-fb:hover, .btn-insta:hover, .btn-email:hover{
+  opacity: 1;
+}
+
+label{
+  margin-bottom: 0;
+}
+
+.addbadge{
+ padding: 16px;
+ width: 50px;
+ height: 42px;
+ border-radius: 4px;
+}
+
+i:hover{
+  color:#fff !important;
+}
+
+.btn-email{
+  background-color: #ec971f !important;
+}
+
+.btn-twitter{
+  background-color: #3399CC !important;
+}
+.btn-fb{
+  background-color: #3D5B96 !important;
+}
+.btn-insta{
+  background-color: #517fa4 !important;
+}
