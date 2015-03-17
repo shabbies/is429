@@ -39,7 +39,7 @@
         Demonstraton of how to eempliment couters, timers, and task queues on Firebase. <br><br>
 
   
-    <button class="btn btn-success" ng-click="addCounter(theKey)">
+    <button class="btn btn-success" ng-click="addCounter(theKey)" analytics-on="click" analytics-event="add_counter">
         Add Counter
     </button> with the key <input ng-model="theKey" type="input" ng-init="theKey='awesome'">
     <br>
@@ -221,7 +221,7 @@
         
 </div> <!-- container -->
 <script>
-  var myApp = angular.module("myApp", ["firebase","chart.js"]);
+  var myApp = angular.module("myApp", ["firebase","chart.js"], ['angulartics', 'angulartics.google.analytics']);
   myApp.controller('userController', ['$scope', '$firebase',
     function($scope, $firebase) {
     $scope.newuser = {};
@@ -459,7 +459,7 @@
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
   
     ga('create', 'UA-32403946-2', 'auto');
-    ga('send', 'pageview');
+    //ga('send', 'pageview');
   </script>
 </body>
 </html>
